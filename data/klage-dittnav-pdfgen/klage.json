@@ -1,4 +1,19 @@
 {
   "fødselsnummer": "12345678901",
-  "etc": "etc."
+  "fornavn": "Planet",
+  "etternavn": "Planetus",
+  "adresse": "Melkeveien 20",
+  "postnummer": "9807",
+  "poststed": "Uranus",
+  "telefonnummer": "83837292",
+  "NAVenhet": "TestEnhet",
+  "vedtaksdato": "210220",
+  "shortWhyShouldChange": "Ønsker å peke ut noen feil",
+  "longWhyShouldChange": "Det står feil i punkt 1, 2, og 5, dette må endres på",
+  "NAVReference": "TestReferanse",
+  "attachments": "1,2,3",
+  "place": "Oslo",
+  "date": "2020-02-19",
+  "userSignature": "",
+  "NAVSignature": ""
 }

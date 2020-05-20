@@ -1,9 +1,258 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
+    <style>
+        * {
+            font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro,
+                ArialSystem, sans-serif;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .main {
+            margin: 10px 30px;
+            color: black;
+        }
+
+        .infoTable small {
+            font-size: 12px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table.infoTable,
+        .infoTable th,
+        .infoTable td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+            vertical-align: baseline;
+        }
+
+        .infoTable td {
+            background-color: #f1f4ff;
+        }
+
+        div.info-desc {
+            background-color: #fff;
+        }
+
+        div.info-data {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        @page {
+            @bottom-right {
+                font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro,
+                    ArialSystem, sans-serif;
+                font-size: 15px;
+                content: "side "counter(page) " av "counter(pages);
+            }
+        }
+
+        .info p {
+            padding: 0;
+            margin: 0;
+            clear: both;
+        }
+
+        .info {
+            margin-bottom: 2em;
+        }
+    </style>
     <title>Klage</title>
 </head>
+
 <body>
+
+    <body>
+        <div class="main">
+            <div class="header">
+                <table>
+                    <tr>
+                        <th style="width: 60%;">
+                            <h1>Arbeids- og velferdsetaten</h1>
+                        </th>
+                        <th style="width: 40%;">
+                            <h1>Klage/anke til</h1>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="personInfo info">
+                <h3>1 Personlige opplysninger</h3>
+                <table class="infoTable">
+                    <tr>
+                        <td style="width: 60%;">
+                            <div>
+                                <div class="info-desc"><small>Etternavn, fornavn</small></div>
+                                <div class="info-data">
+                                    <p>{{etternavn}}, {{fornavn}}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="width: 40%;">
+                            <div>
+                                <div class="info-desc">
+                                    <small>Fødselsnummer (11 siffer)</small>
+                                </div>
+                                <div class="info-data">
+                                    <p>{{fødselsnummer}}</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="info-desc"><small>Adresse</small></div>
+                                <div class="info-data">
+                                    <p>{{adresse}}, {{postnummer}} {{poststed}}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="info-desc"><small>Telefonnummer</small></div>
+                                <div class="info-data">
+                                    <p>{{telefonnummer}}</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="vedtakInfo info">
+                <h3>2 Opplysninger fra vedtaket mv.</h3>
+                <table class="infoTable">
+                    <tr>
+                        <td colspan="2">
+                            <div>
+                                <div class="info-desc">
+                                    <small>Navnet på den NAV-enheten som har gjort vedtaket, som du
+                                        vil klage på/anke over
+                                    </small>
+                                </div>
+                                <div class="info-data">
+                                    <p>{{NAVenhet}}</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="info-desc"><small>Vedtaksdato</small></div>
+                                <div class="info-data">
+                                    <p>{{vedtaksdato}}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td rowspan="2">
+                            <div>
+                                <div class="info-desc">
+                                    <small>Gjør kort rede for hva du mener bør endres i
+                                        vedtaket</small>
+                                </div>
+                                <div class="info-data">
+                                    <p>{{shortWhyShouldChange}}</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="info-desc"><small>NAVs referanse</small></div>
+                                <div class="info-data">
+                                    <p>{{NAVReference}}</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="begrunnelseInfo info">
+                <h3>3 Begrunnelse for klagen/anken</h3>
+                <table class="infoTable">
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="info-desc">
+                                    <small>Gjør rede for hvilken endring du ønsker i vedtaket, og
+                                        beskriv hva du begrunner klagen/anken med. Legg ved
+                                        erklæringer eller bevis som du mener kan være til støtte
+                                        for klagen/anken.</small>
+                                </div>
+                                <div class="info-data">
+                                    <p>{{longWhyShouldChange}}</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="info-desc">
+                                    <small>Oversikt over vedlegg</small>
+                                </div>
+                                <div class="info-data">
+                                    <p>{{attachments}}</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="autographInfo info">
+                <h3>4 Underskrift(er)</h3>
+                <table class="infoTable">
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="info-desc"><small>Sted og dato</small></div>
+                                <div class="info-data">
+                                    <p>{{place}}, {{date}}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td rowspan="2">
+                            <div>
+                                <div class="info-desc">
+                                    <small>Underskriften til den enheten i NAV som har hjulpet deg
+                                        med å skrive klagen/anken</small>
+                                </div>
+                                <div class="info-data">
+                                    <p>{{NAVSignature}}</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="info-desc"><small>Underskrift</small></div>
+                                <div class="info-data">
+                                    <p>{{userSignature}}</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
 </body>
+
 </html>
