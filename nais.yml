@@ -17,3 +17,7 @@ spec:
   prometheus:
     enabled: true
     path: /prometheus
+  accessPolicy:
+    inbound:
+      rules:
+        - application: klage-arkiver-journalpost
