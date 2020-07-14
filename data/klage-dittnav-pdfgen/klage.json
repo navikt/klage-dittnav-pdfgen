@@ -1,15 +1,15 @@
 {
-  "foedselsnummer": "12345678901",
-  "navn": "Planetus, Planet",
+  "foedselsnummer": "123456 78901",
+  "fornavn": "Planet",
+  "mellomnavn": "A",
+  "etternavn": "Planetus",
   "adresse": "Melkeveien 20, 9807 Uranus",
   "telefonnummer": "83837292",
-  "navenhet": "TestEnhet",
-  "vedtaksdato": "210220",
-  "kortRedegjoerelse": "Ønsker å peke ut noen feil",
+  "navEnhet": "TestEnhet",
+  "vedtaksdato": "01.02.2055",
   "begrunnelse": "Det står feil i punkt 1, 2, og 5, dette må endres på",
   "navReferanse": "TestReferanse",
   "oversiktVedlegg": "1,2,3",
-  "dato": "2020-02-19",
-  "brukersignatur": "",
-  "navsignatur": ""
+  "dato": "09.02.2055",
+  "ytelse": "fpenger"
 }

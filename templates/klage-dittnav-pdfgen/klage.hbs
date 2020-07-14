@@ -114,26 +114,26 @@
 <body>
     <div class="main">
         <div class="header">
-            <h1>Klage på vedtak for ...</h1>
+            <h1>Klage på vedtak for {{ytelse}}</h1>
         </div>
         <div class="subheader">
             <p>Sendt inn digitalt via nav.no</p>
-            <p>(dato)</p>
+            <p>{{dato}}</p>
         </div>
 
         <div class="personInfo info">
             <h3>Personlige opplysninger</h3>
             <div id="personlige-opplysninger" class="list-of-infopoints">
                 <div>
-                    <div class="info-desc">Fornavn</div>
+                    <div class="info-desc">For- og mellomnavn</div>
                     <div class="info-data">
-                        <p>Martin{{navn}}</p>
+                        <p>{{fornavn}} {{mellomnavn}}</p>
                     </div>
                 </div>
                 <div>
                     <div class="info-desc">Etternavn</div>
                     <div class="info-data">
-                        <p>Jifodisjfods{{navn}}</p>
+                        <p>{{etternavn}}</p>
                     </div>
                 </div>
                 <div>
