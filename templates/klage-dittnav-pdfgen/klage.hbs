@@ -40,21 +40,19 @@
             margin: 0;
         }
 
-        .list-of-infopoints {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-between;
-        }
-
-        .list-of-infopoints>div {
-            flex-basis: 40%;
-            flex-grow: 1;
+        .single-row,
+        .double-row {
             margin-bottom: 20px;
         }
 
-        .list-of-infopoints#personlige-opplysninger div:last-of-type,
-        .list-of-infopoints#opplysninger-fra-saken div {
-            flex-basis: 100%;
+        .double-row {
+            white-space: nowrap;
+        }
+
+        .double-row>div {
+            display: inline-block;
+            width: 45%;
+            white-space: normal;
         }
 
         .colored-line {
@@ -123,7 +121,7 @@
 
         <div class="personInfo info">
             <h3>Personlige opplysninger</h3>
-            <div id="personlige-opplysninger" class="list-of-infopoints">
+            <div class="double-row">
                 <div>
                     <div class="info-desc">For- og mellomnavn</div>
                     <div class="info-data">
@@ -136,6 +134,8 @@
                         <p>{{etternavn}}</p>
                     </div>
                 </div>
+            </div>
+            <div class="double-row">
                 <div>
                     <div class="info-desc">Fødselsnummer</div>
                     <div class="info-data">
@@ -148,11 +148,11 @@
                         <p>{{telefonnummer}}</p>
                     </div>
                 </div>
-                <div>
-                    <div class="info-desc">Adresse</div>
-                    <div class="info-data">
-                        <p>{{adresse}}</p>
-                    </div>
+            </div>
+            <div class="single-row">
+                <div class="info-desc">Adresse</div>
+                <div class="info-data">
+                    <p>{{adresse}}</p>
                 </div>
             </div>
 
@@ -160,24 +160,22 @@
 
             <h3>Opplysninger fra saken</h3>
 
-            <div id="opplysninger-fra-saken" class="list-of-infopoints">
-                <div>
-                    <div class="info-desc">Vedtak</div>
-                    <div class="info-data">
-                        <p>{{vedtaksdato}}</p>
-                    </div>
+            <div class="single-row">
+                <div class="info-desc">Vedtak</div>
+                <div class="info-data">
+                    <p>{{vedtaksdato}}</p>
                 </div>
-                <div>
-                    <div class="info-desc">NAV-referanse</div>
-                    <div class="info-data">
-                        <p>{{navReferanse}}</p>
-                    </div>
+            </div>
+            <div class="single-row">
+                <div class="info-desc">NAV-referanse</div>
+                <div class="info-data">
+                    <p>{{navReferanse}}</p>
                 </div>
-                <div>
-                    <div class="info-desc">NAV-enheten som har behandlet saken</div>
-                    <div class="info-data">
-                        <p>{{navenhet}}</p>
-                    </div>
+            </div>
+            <div class="single-row">
+                <div class="info-desc">NAV-enheten som har behandlet saken</div>
+                <div class="info-data">
+                    <p>{{navenhet}}</p>
                 </div>
             </div>
 
@@ -185,19 +183,19 @@
 
             <h3>Begrunnelse</h3>
 
-            <div id="begrunnelse">
-                <div>
-                    <div class="info-desc">Begrunnelse</div>
-                    <div class="info-data">
-                        <p class="p_wrap">{{begrunnelse}}</p>
-                    </div>
+            <div class="single-row">
+                <div class="info-desc">Begrunnelse</div>
+                <div class="info-data">
+                    <p class="p_wrap">{{begrunnelse}}</p>
                 </div>
             </div>
 
             <h3>Vedlagte dokumenter</h3>
 
-            <div class="info-data">
-                <p>{{oversiktVedlegg}}</p>
+            <div class="single-row">
+                <div class="info-data">
+                    <p>{{oversiktVedlegg}}</p>
+                </div>
             </div>
         </div>
     </div>
