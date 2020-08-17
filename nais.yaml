@@ -21,3 +21,4 @@ spec:
     inbound:
       rules:
         - application: klage-arkiver-journalpost
+        - application: klage-dittnav-api
