@@ -182,7 +182,15 @@
             <hr class="colored-line">
 
             <h3>Begrunnelse</h3>
-
+            {{#if userChoices.length}}
+            <div class="single-row">
+                <div class="info-data">
+                    {{#each userChoices}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
             <div class="single-row">
                 <div class="info-data">
                     <p class="p_wrap">{{begrunnelse}}</p>
