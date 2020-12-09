@@ -181,20 +181,18 @@
 
             <hr class="colored-line">
 
-            <h3>Begrunnelse</h3>
+            <h3>Begrunnelse i klagen din</h3>
+            <h4>Hva du er uenig i:</h4>
             {{#if userChoices.length}}
-            <div class="single-row">
-                <div class="info-data">
-                    {{#each userChoices}}
-                        <li>{{this}}</li>
-                    {{/each}}
-                </div>
-            </div>
+                {{#each userChoices}}
+                    <div class="single-row">{{this}}</div>
+                {{/each}}
+            {{else}}
+                <div class="single-row">Ingen alternativ valgt</div>
             {{/if}}
             <div class="single-row">
-                <div class="info-data">
-                    <p class="p_wrap">{{begrunnelse}}</p>
-                </div>
+                <h4>Hvorfor du er uenig:</h4>
+                <p class="p_wrap">{{begrunnelse}}</p>
             </div>
 
             <h3>Vedlagte dokumenter</h3>
