@@ -161,6 +161,14 @@
                     <p>{{adresse}}</p>
                 </div>
             </div>
+            {{#if fullmektigNavn}}
+            <div class="single-row">
+                <div class="info-desc">Fullmakt</div>
+                <div class="info-data">
+                    <p>Klagen er innsendt av fullmektig: {{fullmektigNavn}}, fødselsnummer: {{fullmektigFnr}}</p>
+                </div>
+            </div>
+            {{/if}}
 
             <hr class="colored-line">
 
