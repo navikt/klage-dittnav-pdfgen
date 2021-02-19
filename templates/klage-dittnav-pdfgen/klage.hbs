@@ -29,7 +29,7 @@
 
         .header,
         .info-data {
-            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         .header,
@@ -64,7 +64,7 @@
         .colored-line {
             color: #78706A;
             background-color: #78706A;
-            height: 1;
+            height: 1px;
             margin-bottom: 30px;
         }
 
@@ -109,6 +109,7 @@
         }
 
         .p_wrap {
+            word-wrap: break-word;
             white-space: pre-line;
         }
     </style>
@@ -170,7 +171,7 @@
             </div>
             {{/if}}
 
-            <hr class="colored-line">
+            <hr class="colored-line"/>
 
             <h3>Opplysninger fra saken</h3>
 
@@ -187,7 +188,7 @@
                 </div>
             </div>
 
-            <hr class="colored-line">
+            <hr class="colored-line"/>
 
             <h3>Begrunnelse i klagen din</h3>
             <h4>Hva du er uenig i:</h4>
