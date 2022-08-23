@@ -76,6 +76,16 @@
             font-size: 12px;
         }
 
+        td.upperborder {
+            border-top: 1px dotted black;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        td.division {
+            width: 1%;
+        }
+
         table {
             width: 100%;
             page-break-inside: avoid;
@@ -231,12 +241,15 @@
                         &nbsp;
                     </tr>
                     <tr class="small">
-                        <td style="width: 30%;">
+                        <td class="division"/>
+                        <td style="width: 30%;" class="upperborder">
                             Sted og dato
                         </td>
-                        <td>
+                        <td class="division"/>
+                        <td class="upperborder">
                             Underskrift
                         </td>
+                        <td class="division"/>
                     </tr>
                 </table>
             {{/if}}
