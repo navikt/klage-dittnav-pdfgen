@@ -220,17 +220,17 @@
             </div>
 
             {{#if oversiktVedlegg}}
+            {{#unless sendesIPosten}}
             <h3>Vedlagte dokumenter</h3>
 
             <div class="single-row">
                 <div class="info-data">
-                {{#if sendesIPosten}}
-                    <p>Klagen har vedlegg.</p>
-                {{else}}
+
                     <p>{{oversiktVedlegg}}</p>
-                {{/if}}
+
                 </div>
             </div>
+            {{/unless}}
             {{/if}}
             {{#if sendesIPosten}}
                 <table>
