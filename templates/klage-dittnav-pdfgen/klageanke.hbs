@@ -137,13 +137,13 @@
             white-space: pre-line;
         }
     </style>
-    <title>Klage</title>
+    <title>{{#eq type "anke"}}Anke{{/eq}}{{#eq type "klage"}}Klage{{/eq}}</title>
 </head>
 
 <body>
     <div class="main">
         <div class="header">
-            <h1>Klage på vedtak for {{ytelse}}</h1>
+            <h1>{{#eq type "anke"}}Anke {{/eq}}{{#eq type "klage"}}Klage {{/eq}} på vedtak for {{ytelse}}</h1>
         </div>
         <div class="subheader">
         {{#if sendesIPosten}}
@@ -182,7 +182,7 @@
             <div class="single-row">
                 <div class="info-desc">Fullmakt</div>
                 <div class="info-data">
-                    <p>Klagen er innsendt av fullmektig: {{fullmektigNavn}}, fødselsnummer: {{fullmektigFnr}}</p>
+                    <p>{{#eq type "anke"}}Anke{{/eq}}{{#eq type "klage"}}Klage{{/eq}}n er innsendt av fullmektig: {{fullmektigNavn}}, fødselsnummer: {{fullmektigFnr}}</p>
                 </div>
             </div>
             {{/if}}
@@ -190,6 +190,14 @@
             <hr class="colored-line"/>
 
             <h3>Opplysninger fra saken</h3>
+            {{#eq type "anke"}}
+                <div class="single-row">
+                    <div class="info-desc">Behandlende enhet. Kun anker.</div>
+                    <div class="info-data">
+                        <p>{{enhetsnavn}}</p>
+                    </div>
+                </div>
+            {{/eq}}
 
             <div class="single-row">
                 <div class="info-desc">Vedtak</div>
@@ -206,15 +214,19 @@
 
             <hr class="colored-line"/>
 
-            <h3>Begrunnelse i klagen din</h3>
-            <h4>Hva du er uenig i:</h4>
-            {{#if userChoices.length}}
-                {{#each userChoices}}
-                    <div class="single-row">{{this}}</div>
-                {{/each}}
-            {{else}}
-                <div class="single-row"><em>Ingen alternativ valgt</em></div>
-            {{/if}}
+            <h3>Begrunnelse i {{#eq type "anke"}}anke{{/eq}}{{#eq type "klage"}}klage{{/eq}}n din</h3>
+
+            {{#eq type "klage"}}
+                <h4>Hva du er uenig i:</h4>
+                {{#if userChoices.length}}
+                    {{#each userChoices}}
+                        <div class="single-row">{{this}}</div>
+                    {{/each}}
+                {{else}}
+                    <div class="single-row"><em>Ingen alternativ valgt</em></div>
+                {{/if}}
+            {{/eq}}
+
             <div class="single-row">
                 <h4>Hvorfor du er uenig:</h4>
                 <p class="p_wrap">{{begrunnelse}}</p>
