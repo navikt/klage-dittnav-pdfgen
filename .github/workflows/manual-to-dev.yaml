@@ -1,35 +1,73 @@
-name: Manual deploy to dev environment
+name: Manual deploy to dev
+
 on:
   workflow_dispatch:
 
-env:
-  IMAGE: ghcr.io/${{ github.repository }}/klage-dittnav-pdfgen:${{ github.sha }}
+run-name: Dev deploy of ${{ github.ref_name }}
 
 jobs:
   build:
-    name: Build and push Docker container
+    name: Build
+    permissions:
+      contents: read
+      id-token: write
+    outputs:
+      image: ${{ steps.docker-build-push.outputs.image }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - name: Build and publish Docker image
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build & push Docker image
+        uses: nais/docker-build-push@v0
+        id: docker-build-push
+        with:
+          team: klage # required
+          tag: ${{ github.sha }} # optional
+          push_image: true # optional, default true
+          dockerfile: Dockerfile # optional, default Dockerfile
+          docker_context: . # optional, default .
+          image_suffix: # optional, default empty
+          cache_from: type=gha # optional, default type=gha
+          cache_to: type=gha,mode=max # optional, default type=gha,mode=max
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # required, but is defined as an organization secret
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # required, but is defined as an organization variable
+          build_args: |
+            VERSION=${CI}
+
+      - name: Post failures to Slack
+        if: failure()
         run: |
-          docker build --pull --tag ${IMAGE} .
-          docker login ghcr.io -u ${GITHUB_REPOSITORY} -p ${GITHUB_TOKEN}
-          docker push ${IMAGE}
+          curl -X POST --data-urlencode "payload={\"channel\": \"$CHANNEL\", \"text\": \"$MESSAGE\", \"icon_emoji\": \":ghost:\"}" $WEBHOOK_URL
+        env:
+          MESSAGE: "Bygg feilet"
+          CHANNEL: "#klage-notifications"
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
 
   deploy_to_dev:
-    permissions:
-      contents: write
-      packages: write
-    name: Deploy to dev
+    name: Deploy
     needs: build
+    permissions:
+      contents: read
+      id-token: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - uses: nais/deploy/actions/deploy@master
+      - uses: actions/checkout@v3
+        name: Checkout code
+
+      - name: Deploy to dev
+        uses: nais/deploy/actions/deploy@v2
         env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_API_KEY }}
+          TEAM: klage
           CLUSTER: dev-gcp
           RESOURCE: nais.yaml
+          VAR: image=${{ needs.build.outputs.image }}
+          IMAGE: ${{ needs.build.outputs.image }}
+
+      - name: Post failures to Slack
+        if: failure()
+        run: |
+          curl -X POST --data-urlencode "payload={\"channel\": \"$CHANNEL\", \"text\": \"$MESSAGE\", \"icon_emoji\": \":ghost:\"}" $WEBHOOK_URL
+        env:
+          MESSAGE: "Deploy til dev feilet"
+          CHANNEL: "#klage-notifications"
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
