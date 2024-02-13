@@ -1,4 +1,4 @@
-name: Build and deploy to dev
+name: Build and deploy to dev and prod
 
 on:
   push:
@@ -23,6 +23,9 @@ jobs:
           docker push ${IMAGE}
 
   deploy_to_dev:
+    permissions:
+      contents: write
+      packages: write
     name: Deploy to dev
     needs: build
     if: github.ref == 'refs/heads/master'
@@ -36,6 +39,9 @@ jobs:
           RESOURCE: nais.yaml
 
   deploy_to_prod:
+    permissions:
+      contents: write
+      packages: write
     name: Deploy to prod
     needs: deploy_to_dev
     if: github.ref == 'refs/heads/master'
