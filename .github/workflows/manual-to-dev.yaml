@@ -21,7 +21,8 @@ jobs:
 
   deploy_to_dev:
     permissions:
-      contents: write 
+      contents: write
+      packages: write
     name: Deploy to dev
     needs: build
     runs-on: ubuntu-latest

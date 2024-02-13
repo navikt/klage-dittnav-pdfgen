@@ -9,6 +9,7 @@ jobs:
   deploy_to_prod:
     permissions:
       contents: write
+      packages: write
     name: Deploy to prod
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
