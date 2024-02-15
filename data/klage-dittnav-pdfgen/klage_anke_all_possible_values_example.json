@@ -1,0 +1,15 @@
+{
+  "type": "anke",
+  "foedselsnummer": "12345678910",
+  "fornavn": "Kalle",
+  "mellomnavn": "A",
+  "etternavn": "Anka",
+  "vedtak": "123",
+  "begrunnelse": "Min begrunnelse",
+  "saksnummer": "321654",
+  "oversiktVedlegg": "vedlegg1, vedlegg2",
+  "dato": "2024-01-01",
+  "ytelse": "Sykepenger",
+  "userChoices": ["Jeg har fått for lite utbetalt", "Annen grunn"],
+  "enhetsnavn": "NAV Klageinstans vest"
+}

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC
+        "-//OPENHTMLTOPDF//DOC XHTML Character Entities Only 1.0//EN" "">
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        * {
+            font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro,
+                ArialSystem, sans-serif;
+        }
+
+        h1 {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 36px;
+        }
+
+        h3 {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 25px;
+        }
+
+        .main {
+            margin: 10px 30px;
+            color: black;
+        }
+
+        .header,
+        .info-data {
+            word-wrap: break-word;
+        }
+
+        .header,
+        .subheader {
+            text-align: center;
+        }
+
+        .subheader p {
+            font-style: italic;
+            font-size: 16px;
+            line-height: 22px;
+            color: #3E3832;
+            margin: 0;
+        }
+
+        .single-row,
+        .double-row {
+            margin-bottom: 20px;
+        }
+
+        .double-row {
+            white-space: nowrap;
+        }
+
+        .double-row>div {
+            vertical-align: top;
+            display: inline-block;
+            width: 45%;
+            white-space: normal;
+        }
+
+        .colored-line {
+            color: #78706A;
+            background-color: #78706A;
+            height: 1px;
+            margin-bottom: 30px;
+        }
+
+        table, th, tr {
+            border:1px solid black;
+        }
+
+        tr.small {
+            font-size: 12px;
+        }
+
+        td.upperborder {
+            border-top: 1px dotted black;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        td.division {
+            width: 1%;
+        }
+
+        table {
+            width: 100%;
+            page-break-inside: avoid;
+        }
+
+        .infoTable small {
+            font-size: 12px;
+        }
+
+        div.info-desc {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+        }
+
+        div.info-data {
+            padding-top: 8px;
+            font-size: 16px;
+        }
+
+        div.info-data p {
+            font-size: 16px;
+            line-height: 22px;
+            color: #3E3832;
+        }
+
+        @page {
+            @bottom-right {
+                font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro,
+                    ArialSystem, sans-serif;
+                font-size: 15px;
+                content: "side "counter(page) " av "counter(pages);
+            }
+        }
+
+        .info p {
+            padding: 0;
+            margin: 0;
+            clear: both;
+        }
+
+        .info {
+            margin-bottom: 2em;
+        }
+
+        .p_wrap {
+            word-wrap: break-word;
+            white-space: pre-line;
+        }
+    </style>
+    <title>{{#eq type "anke"}}Anke{{/eq}}{{#eq type "klage"}}Klage{{/eq}}</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <h1>{{#eq type "anke"}}Anke {{/eq}}{{#eq type "klage"}}Klage {{/eq}} på vedtak for {{ytelse}}</h1>
+        </div>
+        <div class="subheader">
+        {{#if sendesIPosten}}
+        <p>Skjema opprettet digitalt på nav.no</p>
+        {{else}}
+        <p>Sendt inn digitalt via nav.no</p>
+        <p>{{dato}}</p>
+        {{/if}}
+        </div>
+
+        <div class="personInfo info">
+            <h3>Personlige opplysninger</h3>
+            <div class="double-row">
+                <div>
+                    <div class="info-desc">For- og mellomnavn</div>
+                    <div class="info-data">
+                        <p>{{fornavn}} {{mellomnavn}}</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="info-desc">Etternavn</div>
+                    <div class="info-data">
+                        <p>{{etternavn}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="double-row">
+                <div>
+                    <div class="info-desc">Identifikasjonsnummer</div>
+                    <div class="info-data">
+                        <p>{{foedselsnummer}}</p>
+                    </div>
+                </div>
+            </div>
+            {{#if fullmektigNavn}}
+            <div class="single-row">
+                <div class="info-desc">Fullmakt</div>
+                <div class="info-data">
+                    <p>{{#eq type "anke"}}Anke{{/eq}}{{#eq type "klage"}}Klage{{/eq}}n er innsendt av fullmektig: {{fullmektigNavn}}, fødselsnummer: {{fullmektigFnr}}</p>
+                </div>
+            </div>
+            {{/if}}
+
+            <hr class="colored-line"/>
+
+            <h3>Opplysninger fra saken</h3>
+            {{#eq type "anke"}}
+                <div class="single-row">
+                    <div class="info-desc">Behandlende enhet</div>
+                    <div class="info-data">
+                        <p>{{enhetsnavn}}</p>
+                    </div>
+                </div>
+            {{/eq}}
+
+            <div class="single-row">
+                <div class="info-desc">Vedtak</div>
+                <div class="info-data">
+                    <p>{{vedtak}}</p>
+                </div>
+            </div>
+            <div class="single-row">
+                <div class="info-desc">Saksnummer</div>
+                <div class="info-data">
+                    <p>{{saksnummer}}</p>
+                </div>
+            </div>
+
+            <hr class="colored-line"/>
+
+            <h3>Begrunnelse i {{#eq type "anke"}}anke{{/eq}}{{#eq type "klage"}}klage{{/eq}}n din</h3>
+
+            {{#eq type "klage"}}
+                <h4>Hva du er uenig i:</h4>
+                {{#if userChoices.length}}
+                    {{#each userChoices}}
+                        <div class="single-row">{{this}}</div>
+                    {{/each}}
+                {{else}}
+                    <div class="single-row"><em>Ingen alternativ valgt</em></div>
+                {{/if}}
+            {{/eq}}
+
+            <div class="single-row">
+                <h4>Hvorfor du er uenig:</h4>
+                <p class="p_wrap">{{begrunnelse}}</p>
+            </div>
+
+            {{#if oversiktVedlegg}}
+            {{#unless sendesIPosten}}
+            <h3>Vedlagte dokumenter</h3>
+
+            <div class="single-row">
+                <div class="info-data">
+
+                    <p>{{oversiktVedlegg}}</p>
+
+                </div>
+            </div>
+            {{/unless}}
+            {{/if}}
+            {{#if sendesIPosten}}
+                <table>
+                    <tr>
+                        &nbsp;
+                    </tr>
+                    <tr>
+                        &nbsp;
+                    </tr>
+                    <tr class="small">
+                        <td class="division"/>
+                        <td style="width: 30%;" class="upperborder">
+                            Sted og dato
+                        </td>
+                        <td class="division"/>
+                        <td class="upperborder">
+                            Underskrift
+                        </td>
+                        <td class="division"/>
+                    </tr>
+                </table>
+            {{/if}}
+        </div>
+    </div>
+</body>
+
+</html>
