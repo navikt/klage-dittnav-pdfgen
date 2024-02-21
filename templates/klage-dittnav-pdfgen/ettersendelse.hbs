@@ -137,13 +137,13 @@
             white-space: pre-line;
         }
     </style>
-    <title>Ettersendelse til {{#eq type "anke"}}anke{{/eq}}{{#eq type "klage"}}klage{{/eq}}</title>
+    <title>Ettersendelse til {{#eq type "ANKE_ETTERSENDELSE"}}anke{{/eq}}{{#eq type "KLAGE_ETTERSENDELSE"}}klage{{/eq}}</title>
 </head>
 
 <body>
     <div class="main">
         <div class="header">
-            <h1>Ettersendelse til {{#eq type "anke"}}anke {{/eq}}{{#eq type "klage"}}klage {{/eq}} på vedtak for {{ytelse}}</h1>
+            <h1>Ettersendelse til {{#eq type "ANKE_ETTERSENDELSE"}}anke {{/eq}}{{#eq type "KLAGE_ETTERSENDELSE"}}klage {{/eq}} på vedtak for {{ytelse}}</h1>
         </div>
         <div class="subheader">
         {{#if sendesIPosten}}
@@ -182,7 +182,7 @@
             <div class="single-row">
                 <div class="info-desc">Fullmakt</div>
                 <div class="info-data">
-                    <p>Ettersendelse til {{#eq type "anke"}}anke{{/eq}}{{#eq type "klage"}}klage{{/eq}}n er innsendt av fullmektig: {{fullmektigNavn}}, fødselsnummer: {{fullmektigFnr}}</p>
+                    <p>Ettersendelse til {{#eq type "ANKE_ETTERSENDELSE"}}anke{{/eq}}{{#eq type "KLAGE_ETTERSENDELSE"}}klage{{/eq}}n er innsendt av fullmektig: {{fullmektigNavn}}, fødselsnummer: {{fullmektigFnr}}</p>
                 </div>
             </div>
             {{/if}}
@@ -190,7 +190,7 @@
             <hr class="colored-line"/>
 
             <h3>Opplysninger fra saken</h3>
-            {{#eq type "anke"}}
+            {{#eq type "ANKE_ETTERSENDELSE"}}
                 <div class="single-row">
                     <div class="info-desc">Behandlende enhet</div>
                     <div class="info-data">

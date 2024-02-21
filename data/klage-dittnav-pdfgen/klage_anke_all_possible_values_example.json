@@ -1,5 +1,5 @@
 {
-  "type": "anke",
+  "type": "ANKE",
   "foedselsnummer": "12345678910",
   "fornavn": "Kalle",
   "mellomnavn": "A",
@@ -11,5 +11,6 @@
   "dato": "2024-01-01",
   "ytelse": "Sykepenger",
   "userChoices": ["Jeg har fått for lite utbetalt", "Annen grunn"],
-  "enhetsnavn": "NAV Klageinstans vest"
+  "enhetsnavn": "NAV Klageinstans vest",
+  "sendesIPosten": true
 }

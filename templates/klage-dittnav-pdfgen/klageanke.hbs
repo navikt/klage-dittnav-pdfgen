@@ -137,13 +137,13 @@
             white-space: pre-line;
         }
     </style>
-    <title>{{#eq type "anke"}}Anke{{/eq}}{{#eq type "klage"}}Klage{{/eq}}</title>
+    <title>{{#eq type "ANKE"}}Anke{{/eq}}{{#eq type "KLAGE"}}Klage{{/eq}}</title>
 </head>
 
 <body>
     <div class="main">
         <div class="header">
-            <h1>{{#eq type "anke"}}Anke {{/eq}}{{#eq type "klage"}}Klage {{/eq}} på vedtak for {{ytelse}}</h1>
+            <h1>{{#eq type "ANKE"}}Anke {{/eq}}{{#eq type "KLAGE"}}Klage {{/eq}} på vedtak for {{ytelse}}</h1>
         </div>
         <div class="subheader">
         {{#if sendesIPosten}}
@@ -182,7 +182,7 @@
             <div class="single-row">
                 <div class="info-desc">Fullmakt</div>
                 <div class="info-data">
-                    <p>{{#eq type "anke"}}Anke{{/eq}}{{#eq type "klage"}}Klage{{/eq}}n er innsendt av fullmektig: {{fullmektigNavn}}, fødselsnummer: {{fullmektigFnr}}</p>
+                    <p>{{#eq type "ANKE"}}Anke{{/eq}}{{#eq type "KLAGE"}}Klage{{/eq}}n er innsendt av fullmektig: {{fullmektigNavn}}, fødselsnummer: {{fullmektigFnr}}</p>
                 </div>
             </div>
             {{/if}}
@@ -190,7 +190,7 @@
             <hr class="colored-line"/>
 
             <h3>Opplysninger fra saken</h3>
-            {{#eq type "anke"}}
+            {{#eq type "ANKE"}}
                 <div class="single-row">
                     <div class="info-desc">Behandlende enhet</div>
                     <div class="info-data">
@@ -214,9 +214,9 @@
 
             <hr class="colored-line"/>
 
-            <h3>Begrunnelse i {{#eq type "anke"}}anke{{/eq}}{{#eq type "klage"}}klage{{/eq}}n din</h3>
+            <h3>Begrunnelse i {{#eq type "ANKE"}}anke{{/eq}}{{#eq type "KLAGE"}}klage{{/eq}}n din</h3>
 
-            {{#eq type "klage"}}
+            {{#eq type "KLAGE"}}
                 <h4>Hva du er uenig i:</h4>
                 {{#if userChoices.length}}
                     {{#each userChoices}}
