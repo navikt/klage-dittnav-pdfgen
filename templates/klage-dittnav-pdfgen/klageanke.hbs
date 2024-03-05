@@ -247,7 +247,11 @@
 
             <div class="single-row">
                 <h4>Hvorfor du er uenig:</h4>
+                {{#if begrunnelse}}
                 <p class="p_wrap">{{begrunnelse}}</p>
+                {{else}}
+                <p class="p_wrap">Ikke oppgitt</p>
+                {{/if}}
             </div>
 
             {{#if oversiktVedlegg}}
