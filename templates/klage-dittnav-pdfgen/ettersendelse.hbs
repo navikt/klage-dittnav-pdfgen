@@ -190,14 +190,14 @@
             <hr class="colored-line"/>
 
             <h3>Opplysninger fra saken</h3>
-            {{#eq type "ANKE_ETTERSENDELSE"}}
+            {{#if enhetsnavn}}
                 <div class="single-row">
                     <div class="info-desc">Behandlende enhet</div>
                     <div class="info-data">
                         <p>{{enhetsnavn}}</p>
                     </div>
                 </div>
-            {{/eq}}
+            {{/if}}
 
             <div class="single-row">
                 <div class="info-desc">Dato for vedtak</div>
