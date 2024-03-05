@@ -217,9 +217,12 @@
             <h3>Årsak til ettersendelse</h3>
 
             <div class="single-row">
+            {{#if begrunnelse}}
                 <p class="p_wrap">{{begrunnelse}}</p>
+            {{else}}
+                <p class="p_wrap">Ikke oppgitt</p>
+            {{/if}}
             </div>
-
             {{#if oversiktVedlegg}}
             {{#unless sendesIPosten}}
             <h3>Vedlagte dokumenter</h3>
