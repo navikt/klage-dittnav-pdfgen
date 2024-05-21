@@ -190,14 +190,18 @@
             <hr class="colored-line"/>
 
             <h3>Opplysninger fra saken</h3>
-            {{#if enhetsnavn}}
-                <div class="single-row">
-                    <div class="info-desc">Behandlende enhet</div>
-                    <div class="info-data">
-                        <p>{{enhetsnavn}}</p>
-                    </div>
+            {{#eq type "KLAGE_ETTERSENDELSE"}}
+            <div class="single-row">
+                <div class="info-desc">Har du mottatt et brev fra NAV Klageinstans eller en annen enhet i NAV om at saken din er sendt til NAV Klageinstans?</div>
+                <div class="info-data">
+                {{#if ettersendelseTilKa}}
+                    <p>Ja</p>
+                {{else}}
+                    <p>Nei</p>
+                {{/if}}
                 </div>
-            {{/if}}
+            </div>
+            {{/eq}}
 
             <div class="single-row">
                 <div class="info-desc">Dato for vedtak</div>
