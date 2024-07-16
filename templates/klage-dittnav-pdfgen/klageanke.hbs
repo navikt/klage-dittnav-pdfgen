@@ -4,6 +4,9 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="{{#eq type "ANKE"}}Anke{{/eq}}{{#eq type "KLAGE"}}Klage{{/eq}}" />
+    <meta name="author" content="klage-dittnav-pdfgen" />
+    <meta name="subject" content="{{#eq type "ANKE"}}Anke{{/eq}}{{#eq type "KLAGE"}}Klage{{/eq}}" />
     <style>
         * {
             font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro,
@@ -244,10 +247,10 @@
             {{#if sendesIPosten}}
                 <table>
                     <tr>
-                        &nbsp;
+                        <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        &nbsp;
+                        <td>&nbsp;</td>
                     </tr>
                     <tr class="small">
                         <td class="division"/>

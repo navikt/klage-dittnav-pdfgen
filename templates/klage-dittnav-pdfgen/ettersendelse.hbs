@@ -4,6 +4,9 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="Ettersendelse til {{#eq type "ANKE_ETTERSENDELSE"}}anke{{/eq}}{{#eq type "KLAGE_ETTERSENDELSE"}}klage{{/eq}}" />
+    <meta name="author" content="klage-dittnav-pdfgen" />
+    <meta name="subject" content="Ettersendelse til {{#eq type "ANKE_ETTERSENDELSE"}}anke{{/eq}}{{#eq type "KLAGE_ETTERSENDELSE"}}klage{{/eq}}" />
     <style>
         * {
             font-family: "Source Sans Pro", SourceSansPro, Source_Sans_Pro,
@@ -243,10 +246,10 @@
             {{#if sendesIPosten}}
                 <table>
                     <tr>
-                        &nbsp;
+                        <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        &nbsp;
+                        <td>&nbsp;</td>
                     </tr>
                     <tr class="small">
                         <td class="division"/>
