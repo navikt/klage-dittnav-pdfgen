@@ -221,7 +221,9 @@
             {{/if}}
 
             <div class="single-row">
-                <h4>Hvorfor du er uenig:</h4>
+                {{#if userChoices.length}}
+                    <h4>Hvorfor du er uenig:</h4>
+                {{/if}}
                 {{#if begrunnelse}}
                 <p class="p_wrap">{{begrunnelse}}</p>
                 {{else}}
