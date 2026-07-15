@@ -12,5 +12,7 @@
   "ytelse": "Sykepenger",
   "userChoices": ["Jeg har fått for lite utbetalt", "Annen grunn"],
   "ettersendelseTilKa": true,
-  "sendesIPosten": true
+  "sendesIPosten": true,
+  "fullmektigId": "10123456789",
+  "fullmektigNavn": "Donald Duck"
 }
