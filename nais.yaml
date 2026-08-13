@@ -7,6 +7,9 @@ metadata:
     team: klage
 spec:
   image: {{ image }}
+  resources:
+    requests:
+      memory: 48Mi
   replicas:
     min: 2
     max: 4
@@ -17,7 +20,7 @@ spec:
     path: /internal/is_ready
   prometheus:
     enabled: true
-    path: /internal/prometheus
+    path: /internal/metrics
   accessPolicy:
     inbound:
       rules:
