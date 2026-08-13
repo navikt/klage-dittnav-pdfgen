@@ -1,0 +1,12 @@
+services:
+  pdfgen:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - DISABLE_PDF_GET=false
+    develop:
+      watch:
+        - action: sync+restart
+          path: ./templates
+          target: /app/templates

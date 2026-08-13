@@ -1,5 +1,5 @@
 {
-  "type": "KLAGE",
+  "type": "KLAGE_ETTERSENDELSE",
   "foedselsnummer": "12345678910",
   "fornavn": "Kalle",
   "mellomnavn": "A",
@@ -10,7 +10,8 @@
   "oversiktVedlegg": "vedlegg1, vedlegg2",
   "dato": "2024-01-01",
   "ytelse": "Sykepenger",
-  "userChoices": ["Jeg har fått for lite utbetalt", "Annen grunn"],
-  "ettersendelseTilKa": true,
-  "sendesIPosten": true
+  "ettersendelseTilKa": false,
+  "sendesIPosten": false,
+  "fullmektigId": "10123456789",
+  "fullmektigNavn": "Donald Duck"
 }
