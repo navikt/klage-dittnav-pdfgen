@@ -11,5 +11,7 @@
   "dato": "2024-01-01",
   "ytelse": "Sykepenger",
   "ettersendelseTilKa": false,
-  "sendesIPosten": false
+  "sendesIPosten": false,
+  "fullmektigId": "10123456789",
+  "fullmektigNavn": "Donald Duck"
 }

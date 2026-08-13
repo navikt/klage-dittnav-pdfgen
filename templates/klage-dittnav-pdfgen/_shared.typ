@@ -44,14 +44,17 @@
   value,
 )
 
-#let personopplysninger-section(fornavn, mellomnavn, etternavn, foedselsnummer) = {
+#let personopplysninger-section(fornavn, mellomnavn, etternavn, foedselsnummer, fullmakt) = {
   section-heading[Personlige opplysninger]
   grid(
       columns: (1fr, 1fr),
       row-gutter: 2em,
       field("For- og mellomnavn", fornavn + " " + mellomnavn),
       field("Etternavn", etternavn),
-      field("Identifikasjonsnummer", foedselsnummer)
+      field("Identifikasjonsnummer", foedselsnummer),
+      if fullmakt != none and fullmakt != "" [
+        #field("Fullmakt", fullmakt)
+      ]
   )
 }
 

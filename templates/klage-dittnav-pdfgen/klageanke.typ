@@ -17,6 +17,8 @@
 #let saksnummer = data.at("saksnummer", default: "")
 #let begrunnelse = data.at("begrunnelse", default: none)
 #let oversiktVedlegg = data.at("oversiktVedlegg", default: none)
+#let fullmektigId = data.at("fullmektigId", default: none)
+#let fullmektigNavn = data.at("fullmektigNavn", default: "[Navn mangler]")
 
 #let titleLabel = (
     "KLAGE": "Klage",
@@ -28,7 +30,13 @@
 #let title = titleLabel + " på vedtak om " + ytelse
 #header(title, sendesIPosten, dato)
 
-#personopplysninger-section(fornavn, mellomnavn, etternavn, foedselsnummer)
+#let fullmakt = if fullmektigId != none and fullmektigId != "" [
+    #(titleLabel)n er innsendt av fullmektig: #(fullmektigNavn), fødselsnummer: #(fullmektigId)
+] else {
+   none
+}
+
+#personopplysninger-section(fornavn, mellomnavn, etternavn, foedselsnummer, fullmakt)
 
 #section-divider()
 

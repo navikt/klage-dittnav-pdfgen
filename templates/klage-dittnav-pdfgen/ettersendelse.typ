@@ -18,6 +18,8 @@
 #let begrunnelse = data.at("begrunnelse", default: none)
 #let oversiktVedlegg = data.at("oversiktVedlegg", default: none)
 #let ettersendelseTilKa = data.at("ettersendelseTilKa", default: false)
+#let fullmektigId = data.at("fullmektigId", default: none)
+#let fullmektigNavn = data.at("fullmektigNavn", default: "[Navn mangler]")
 
 #let typeLabel = (
     "KLAGE_ETTERSENDELSE": "klage",
@@ -29,7 +31,13 @@
 #let title = "Ettersendelse til " + typeLabel + " på vedtak om " + ytelse
 #header(title, sendesIPosten, dato)
 
-#personopplysninger-section(fornavn, mellomnavn, etternavn, foedselsnummer)
+#let fullmakt = if fullmektigId != none and fullmektigId != "" [
+    Ettersendelse til #(typeLabel)n er innsendt av fullmektig: #(fullmektigNavn), fødselsnummer: #(fullmektigId)
+] else {
+    none
+}
+
+#personopplysninger-section(fornavn, mellomnavn, etternavn, foedselsnummer, fullmakt)
 
 #section-divider()
 

@@ -10,5 +10,7 @@
   "oversiktVedlegg": "vedlegg1, vedlegg2",
   "dato": "2024-01-01",
   "ytelse": "Sykepenger",
-  "sendesIPosten": true
+  "sendesIPosten": true,
+  "fullmektigId": "10123456789",
+  "fullmektigNavn": "Donald Duck"
 }
