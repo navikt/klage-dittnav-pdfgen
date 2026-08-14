@@ -10,3 +10,6 @@ services:
         - action: sync+restart
           path: ./templates
           target: /app/templates
+        - action: sync+restart
+          path: ./fonts
+          target: /appfonts

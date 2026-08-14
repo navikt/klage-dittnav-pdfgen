@@ -9,7 +9,7 @@ spec:
   image: {{ image }}
   resources:
     requests:
-      memory: 48Mi
+      memory: 200Mi
   replicas:
     min: 2
     max: 4
