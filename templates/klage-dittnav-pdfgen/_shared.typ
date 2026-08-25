@@ -102,10 +102,10 @@
       field("For- og mellomnavn", fornavn + " " + mellomnavn),
       field("Etternavn", etternavn),
       field("Identifikasjonsnummer", foedselsnummer),
-      if fullmakt != none and fullmakt != "" [
-        #field("Fullmakt", fullmakt)
-      ]
   )
+  if fullmakt != none and fullmakt != "" [
+      #field("Fullmakt", fullmakt)
+  ]
 }
 
 #let signature-box() = {
