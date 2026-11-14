@@ -19,7 +19,7 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         name: Checkout code
 
       - name: Get image registry
@@ -36,7 +36,7 @@ jobs:
         run: echo "image=${{ steps.image-registry.outputs.registry }}/klage-dittnav-pdfgen:${{ github.sha }}" >> $GITHUB_OUTPUT
 
       - name: Deploy to prod
-        uses: nais/deploy/actions/deploy@v2
+        uses: nais/deploy/actions/deploy@v3
         env:
           TEAM: klage
           CLUSTER: prod-gcp
@@ -52,7 +52,7 @@ jobs:
           VERSION=$TIME-$COMMIT
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
 
-      - uses: ncipollo/release-action@main
+      - uses: ncipollo/release-action@v1.21.0
         with:
           tag: ${{ steps.version.outputs.version }}
 
