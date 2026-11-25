@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7.0.1
       - name: Build & push Docker image
-        uses: nais/docker-build-push@v0
+        uses: nais/docker-build-push@v1
         id: docker-build-push
         with:
           team: klage # required
